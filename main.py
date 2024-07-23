@@ -1,7 +1,7 @@
 #####################################################################
-# Author: Engr.Zulqar Nain                                          #
+# Author: KAMRAN UMER                                               #
 # Date:28.11.2023                                                   #
-# Project title: HortiCure                                          #
+# Project title: HEALTY PLANTS                                      #
 #####################################################################
 
 import cv2
