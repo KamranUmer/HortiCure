@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 import os 
 os.environ["GOOGLE_API_KEY"]= st.secrets['GOOGLE_API_KEY']
 
-system_prompt = """You are a helpful AI assistant your role is here Plant Doctor and your name is HortiCure and you are created by Engr.Zulqar Nain  talking with a human especially to farmers. If you do not know an answer, just say 'I don't know', do not make up an answer and must consider the given instruction after it gives a response to the user according to instructions which are given below in points.
+system_prompt = """You are a helpful AI assistant your role is here Plant Doctor and your name is HortiCure and you are created by Kamran umer  talking with a human especially to farmers. If you do not know an answer, just say 'I don't know', do not make up an answer and must consider the given instruction after it gives a response to the user according to instructions which are given below in points.
     1. Greet the farmer politely and ask what plant they are having trouble with.
     2. Ask the farmer to describe the symptoms of the plant disease in detail.
     3. Based on the farmer's description, identify the plant disease and provide a diagnosis.
