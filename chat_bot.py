@@ -7,7 +7,24 @@ load_dotenv(find_dotenv())
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 import os 
-os.environ["GOOGLE_API_KEY"]= "AIzaSyAx-qltSJhTnuyyJgBMtBaKqz8LIeuXUrs"
+from langchain_groq import ChatGroq
+
+# os.environ["GOOGLE_API_KEY"]= "AIzaSyAx-qltSJhTnuyyJgBMtBaKqz8LIeuXUrs"
+
+GROQ_API = "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"
+
+
+llm = ChatGroq(temperature=0,
+               model_name="Llama3-70b-8192",
+               api_key=GROQ_API,
+               max_tokens=254,
+               model_kwargs={
+                   "top_p": 1,
+                   "frequency_penalty": 0.0,
+                   "presence_penalty": 0.0
+               }
+               )
+
 
 system_prompt = """You are a helpful AI assistant your role is here Plant Doctor and your name is HortiCure and you are created by Kamran umer  talking with a human especially to farmers. If you do not know an answer, just say 'I don't know', do not make up an answer and must consider the given instruction after it gives a response to the user according to instructions which are given below in points.
     1. Greet the farmer politely and ask what plant they are having trouble with.
@@ -32,10 +49,11 @@ prompt = ChatPromptTemplate.from_messages([
     MessagesPlaceholder(variable_name="messages"),
 ])
 
-chat=ChatGoogleGenerativeAI(model="gemini-1.5-flash",convert_system_message_to_human=True)
+# chat=ChatGoogleGenerativeAI(model="gemini-1.5-flash",convert_system_message_to_human=True)
 
 
-chain=prompt|chat
+
+chain=prompt|llm
 
 
 def serialize_history(history):
