@@ -9,9 +9,8 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 import os 
 from langchain_groq import ChatGroq
 
-# os.environ["GOOGLE_API_KEY"]= "AIzaSyAx-qltSJhTnuyyJgBMtBaKqz8LIeuXUrs"
 
-GROQ_API = "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"
+GROQ_API = os.getenv("GROQ_API_KEY")
 
 
 llm = ChatGroq(temperature=0,
